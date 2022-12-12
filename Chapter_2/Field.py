@@ -14,44 +14,51 @@ field가 사용되는 것은 Annotation을 함과 동시에 기본값을 할당�
 from dataclasses import dataclass, field
 from typing import List
 
+
 @dataclass
 class TestClass:
-    x : int
-    y : int
-    mylist : list = [] # ValueError: mutable default <class 'list'> for field mylist is not allowed: use default_factory
+    x: int
+    y: int
+    mylist: list = (
+        []
+    )  # ValueError: mutable default <class 'list'> for field mylist is not allowed: use default_factory
+
 
 @dataclass
 class FieldClass:
-    x : int
-    y : int
-    mylist : List = field(default_factory=list)
+    x: int
+    y: int
+    mylist: List = field(default_factory=list)
+
 
 fc = FieldClass(x=1, y=3)
-print(fc.x, fc.y, fc.mylist) # 1 3 []
+print(fc.x, fc.y, fc.mylist)  # 1 3 []
+
 
 @dataclass
 class WhyWorking:
-    x : int
-    y : int
+    x: int
+    y: int
     mylist = []
+
 
 ww = WhyWorking(x=5, y=1)
 
-print(ww.x, ww.y, ww.mylist) # 5 1 []
+print(ww.x, ww.y, ww.mylist)  # 5 1 []
 
-ww2 = WhyWorking(x='new', y='new')
+ww2 = WhyWorking(x="new", y="new")
 print(ww2.x, ww2.y, ww2.mylist)
 
 ##예시
 R = 26
 
+
 @dataclass
 class TRieNode:
     size = R
     value: int
-    next_: List['RTrieNode'] = field(default_factory=lambda: [None]*R)
+    next_: List["RTrieNode"] = field(default_factory=lambda: [None] * R)
 
     def __post_init__(self):
         if len(self.next_) != self.size:
             raise ValueError(f"리스트(next_)의 길이가 유효하지 않음.")
-
