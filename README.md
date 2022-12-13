@@ -1,2 +1,14 @@
 # PythonCleanCode
-To be better Developer!!
+# 파이썬 클린 코드 2nd Edition 
+파이썬 클린 코드 2판을 공부하고 정리한 내용들 입니다.  
+더 깔끔하고 소통하기 좋은 코드를 짜기 위한 공부 레포입니다.  
+
+<br>
+
+
+## 📚**WIL Table**📚
+
+|날짜|Chapter|요약|
+|:------:|:---:|:---:|
+|2022.12.10|Chapter1|클린 코드의 정의와 Formatter|
+|2022.12.13|Chapter2|파이써닉한 코드와 유용한 매직 메서드들|
